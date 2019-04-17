@@ -3,18 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+import java.sql.*;
+import javax.swing.*;
 /**
  *
  * @author Admin
  */
 public class welCome extends javax.swing.JFrame {
-
+    Connection con=null;
     /**
      * Creates new form welCome
      */
     public welCome() {
         initComponents();
+        con=jdbcConnection.dbConnection();
     }
 
     /**
