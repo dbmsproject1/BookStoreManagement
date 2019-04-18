@@ -33,17 +33,17 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Bodoni MT" size="36" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="WELCOME"/>
+        <Property name="text" type="java.lang.String" value="WELCOME TO BOOK STORE MANAGEMENT"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="310" y="140" width="240" height="80"/>
+          <AbsoluteConstraints x="50" y="60" width="800" height="240"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Click here to continue.."/>
+        <Property name="text" type="java.lang.String" value="Click Here To Login"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>

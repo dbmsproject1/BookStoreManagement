@@ -36,10 +36,10 @@ public class welCome extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Bodoni MT", 1, 36)); // NOI18N
-        jLabel1.setText("WELCOME");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, 240, 80));
+        jLabel1.setText("WELCOME TO BOOK STORE MANAGEMENT");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 800, 240));
 
-        jButton1.setText("Click here to continue..");
+        jButton1.setText("Click Here To Login");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -51,8 +51,10 @@ public class welCome extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new NewJFrame2().setVisible(true);
-        this.setVisible(false);
+      /*  new Login().setVisible(true);
+        this.setVisible(false);*/
+      new NewJFrame2().setVisible(true);
+      this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
