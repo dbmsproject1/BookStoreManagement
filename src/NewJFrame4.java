@@ -25,7 +25,7 @@ public class NewJFrame4 extends javax.swing.JFrame {
         updateTable();
     }
     private void updateTable(){
-        String sql="select * from booktech11";
+        String sql="select * from book1";
         try {
             pst=con.prepareStatement(sql);
             rs=pst.executeQuery();
@@ -158,6 +158,7 @@ public class NewJFrame4 extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseClicked(evt);
@@ -170,7 +171,7 @@ public class NewJFrame4 extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(462, 90, 440, 390));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 440, 390));
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton4.setText("ADD BOOK");
@@ -183,7 +184,6 @@ public class NewJFrame4 extends javax.swing.JFrame {
 
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton5.setText("DELETE");
-        jButton5.setActionCommand("DELETE");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -212,7 +212,7 @@ public class NewJFrame4 extends javax.swing.JFrame {
     }//GEN-LAST:event_text_noActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String sql="update BOOKTECH11 set "
+        String sql="update BOOK1 set "
                     +"BOOK_NAME='"+text_name.getText()+"',"
                     +"AUTHOR_NAME='"+text_author.getText()+"',"
                     +"PRICE='"+text_price.getText()+"',"
@@ -226,7 +226,8 @@ public class NewJFrame4 extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Record Updated");
             updateTable();
             clearfeild();
-        } catch (Exception e) {
+        } catch (HeadlessException | SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -234,8 +235,8 @@ public class NewJFrame4 extends javax.swing.JFrame {
       int row=jTable1.getSelectedRow();
       
         System.err.println(row);
-      String selection=jTable1.getModel().getValueAt(row,3).toString();
-      String sql="select * from booktech11 where PRICE = "+selection;
+      String selection=jTable1.getModel().getValueAt(row,0).toString();
+      String sql="select * from book1 where BOOK_NO = "+selection;
       try {
             pst=con.prepareStatement(sql);
             rs=pst.executeQuery();
@@ -256,8 +257,8 @@ public class NewJFrame4 extends javax.swing.JFrame {
      int row=jTable1.getSelectedRow();
       
         System.err.println(row);
-      String selection=jTable1.getModel().getValueAt(row,3).toString();
-      String sql="select * from booktech11 where PRICE = "+selection;
+      String selection=jTable1.getModel().getValueAt(row,0).toString();
+      String sql="select * from book1 where BOOK_NO = "+selection;
       try {
             pst=con.prepareStatement(sql);
             rs=pst.executeQuery();
@@ -275,7 +276,7 @@ public class NewJFrame4 extends javax.swing.JFrame {
     }//GEN-LAST:event_jTable1KeyReleased
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-         String sql="Insert into booktech11 (BOOK_NO,BOOK_NAME,AUTHOR_NAME,PRICE,EDITION,CATEGORY) VALUES (?,?,?,?,?,?)";
+         String sql="Insert into book1 (BOOK_NO,BOOK_NAME,AUTHOR_NAME,PRICE,EDITION,CATEGORY) VALUES (?,?,?,?,?,?)";
             try {
             pst=con.prepareStatement(sql);
             pst.setString(1, text_no.getText());
@@ -297,7 +298,7 @@ public class NewJFrame4 extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
          int row = jTable1.getSelectedRow();
         String cell= jTable1.getModel().getValueAt(row,3).toString();
-        String sql="DELETE FROM BOOKTECH11 WHERE PRICE = "+ cell;
+        String sql="DELETE FROM BOOK1 WHERE BOOK_NO = "+ cell;
         try {
             pst= con.prepareStatement(sql);
             pst.execute();
