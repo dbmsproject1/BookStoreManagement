@@ -26,6 +26,7 @@ public class NewJFrame4 extends javax.swing.JFrame {
     }
     private void updateTable(){
         String sql="select * from book1";
+        
         try {
             pst=con.prepareStatement(sql);
             rs=pst.executeQuery();
@@ -237,6 +238,7 @@ public class NewJFrame4 extends javax.swing.JFrame {
         System.err.println(row);
       String selection=jTable1.getModel().getValueAt(row,0).toString();
       String sql="select * from book1 where BOOK_NO = "+selection;
+      String sql2="select block from book_place1 where BOOK_NO="+selection;
       try {
             pst=con.prepareStatement(sql);
             rs=pst.executeQuery();
@@ -247,6 +249,12 @@ public class NewJFrame4 extends javax.swing.JFrame {
                 text_price.setText(rs.getString("PRICE"));
                 text_edition.setText(rs.getString("EDITION"));
                 text_cat.setText(rs.getString("CATEGORY"));
+            }
+            pst=con.prepareStatement(sql2);
+            rs=pst.executeQuery();
+            if(rs.next()){
+                text_block.setText(rs.getString("BLOCK"));
+                        
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
@@ -259,6 +267,7 @@ public class NewJFrame4 extends javax.swing.JFrame {
         System.err.println(row);
       String selection=jTable1.getModel().getValueAt(row,0).toString();
       String sql="select * from book1 where BOOK_NO = "+selection;
+      String sql2="select block from book_place1 where BOOK_NO="+selection;
       try {
             pst=con.prepareStatement(sql);
             rs=pst.executeQuery();
@@ -270,6 +279,12 @@ public class NewJFrame4 extends javax.swing.JFrame {
                 text_edition.setText(rs.getString("EDITION"));
                 text_cat.setText(rs.getString("CATEGORY"));
             }
+            pst=con.prepareStatement(sql2);
+            rs=pst.executeQuery();
+            if(rs.next()){
+                text_block.setText(rs.getString("BLOCK"));
+                        
+            }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
@@ -277,6 +292,7 @@ public class NewJFrame4 extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
          String sql="Insert into book1 (BOOK_NO,BOOK_NAME,AUTHOR_NAME,PRICE,EDITION,CATEGORY) VALUES (?,?,?,?,?,?)";
+         String sql2="Insert into book_place ()";
             try {
             pst=con.prepareStatement(sql);
             pst.setString(1, text_no.getText());

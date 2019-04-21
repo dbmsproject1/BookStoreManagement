@@ -97,7 +97,7 @@ public class search extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jbtnsearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnsearchActionPerformed
-        system.search(0)
+        
     }//GEN-LAST:event_jbtnsearchActionPerformed
 
     /**
